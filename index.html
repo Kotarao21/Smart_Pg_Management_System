@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="
+    text-align:center;
+    font-weight:bold;
+    margin-bottom:25px;
+    color:#2c3e50;
+">Dashboard</h2>
+
+<div class="row" style="gap:20px; justify-content:center;">
+
+  <!-- Rooms Card -->
+  <div class="col-md-3" style="min-width:230px;">
+    <div style="
+        background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267');
+        background-size: cover;
+        background-position: center;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        text-align:center;
+        font-size:18px;
+        color: white;
+        font-weight: 600;
+        position: relative;
+    ">
+      <!-- Overlay -->
+      <div style="
+          position:absolute;
+          inset:0;
+          background: rgba(0,0,0,0.55);
+          border-radius: 15px;
+      "></div>
+
+      <div style="position: relative; z-index: 10;">
+        <div style="font-size:40px; color:#00aaff;">🏠</div>
+        Rooms<br>
+        <strong style="font-size:24px;">{{ total_rooms }}</strong>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Tenants Card -->
+  <div class="col-md-3" style="min-width:230px;">
+    <div style="
+        background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4');
+        background-size: cover;
+        background-position: center;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        text-align:center;
+        font-size:18px;
+        color: white;
+        font-weight:600;
+        position: relative;
+    ">
+      <!-- overlay -->
+      <div style="
+          position:absolute;
+          inset:0;
+          background: rgba(0,0,0,0.55);
+          border-radius: 15px;
+      "></div>
+
+      <div style="position: relative; z-index: 10;">
+        <div style="font-size:40px; color:#ffb347;">👨‍💼</div>
+        Tenants<br>
+        <strong style="font-size:24px;">{{ total_tenants }}</strong>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Active Bookings Card -->
+  <div class="col-md-3" style="min-width:230px;">
+    <div style="
+        background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427');
+        background-size: cover;
+        background-position: center;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        text-align:center;
+        font-size:18px;
+        color: white;
+        font-weight:600;
+        position: relative;
+    ">
+      <!-- overlay -->
+      <div style="
+          position:absolute;
+          inset:0;
+          background: rgba(0,0,0,0.55);
+          border-radius: 15px;
+      "></div>
+
+      <div style="position: relative; z-index: 10;">
+        <div style="font-size:40px; color:#4bff88;">🛏️</div>
+        Active Bookings<br>
+        <strong style="font-size:24px;">{{ active_bookings }}</strong>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Income Card -->
+  <div class="col-md-3" style="min-width:230px;">
+    <div style="
+        background-image: url('https://images.unsplash.com/photo-1554224154-22dec7ec8818');
+        background-size: cover;
+        background-position: center;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        text-align:center;
+        font-size:18px;
+        color: white;
+        font-weight:600;
+        position: relative;
+    ">
+      <!-- overlay -->
+      <div style="
+          position:absolute;
+          inset:0;
+          background: rgba(0,0,0,0.55);
+          border-radius: 15px;
+      "></div>
+
+      <div style="position: relative; z-index: 10;">
+        <div style="font-size:40px; color:#66ff66;">💰</div>
+        Total Income<br>
+        <strong style="font-size:24px;">₹ {{ total_income or 0 }}</strong>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

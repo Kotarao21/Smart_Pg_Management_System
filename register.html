@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="
+    background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 40px 0;
+    border-radius: 12px;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+">
+
+    <div style="
+        width: 400px;
+        background: rgba(255, 255, 255, 0.87);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.35);
+        backdrop-filter: blur(4px);
+    ">
+
+        <h3 style="
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        ">Register</h3>
+
+        <form method="post" style="font-size: 16px;">
+
+            <!-- Full Name -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">Full Name</label>
+                <input class="form-control" name="name" placeholder="Enter your name" required
+                       style="padding:10px; border-radius:8px; border:1px solid #bbb;">
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">Email</label>
+                <input class="form-control" name="email" placeholder="Enter your email" required
+                       style="padding:10px; border-radius:8px; border:1px solid #bbb;">
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">Password</label>
+                <input class="form-control" name="password" type="password" placeholder="Create a password" required
+                       style="padding:10px; border-radius:8px; border:1px solid #bbb;">
+            </div>
+
+            <!-- Register Button -->
+            <button class="btn btn-success" style="
+                width:100%;
+                padding:12px;
+                font-size:17px;
+                border-radius:8px;
+                font-weight:bold;
+            ">
+                Register
+            </button>
+
+        </form>
+
+        <p class="mt-3" style="text-align:center;">
+            Already have an account?
+            <a href="{{ url_for('login') }}" style="font-weight:600;">Login</a>
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

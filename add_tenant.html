@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="
+    padding: 25px;
+    background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 12px;
+">
+
+    <div style="
+        max-width: 550px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.93);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.35);
+    ">
+
+        <h3 style="
+            text-align:center;
+            font-weight:bold;
+            margin-bottom:25px;
+            color:#2c3e50;
+        ">Add Tenant</h3>
+
+        <form method="post" style="font-size:16px;">
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">Name</label>
+                <input class="form-control" name="name" placeholder="Full Name" required
+                       style="padding:10px; border-radius:8px; border:1px solid #bbb;">
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">Phone</label>
+                <input class="form-control" name="phone" placeholder="Phone Number" required
+                       style="padding:10px; border-radius:8px; border:1px solid #bbb;">
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">Email</label>
+                <input class="form-control" name="email" placeholder="Email Address"
+                       style="padding:10px; border-radius:8px; border:1px solid #bbb;">
+            </div>
+
+            <!-- ID Type -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">ID Type</label>
+                <input class="form-control" name="id_type" placeholder="Aadhaar / PAN / Passport"
+                       style="padding:10px; border-radius:8px; border:1px solid #bbb;">
+            </div>
+
+            <!-- ID Number -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">ID Number</label>
+                <input class="form-control" name="id_number" placeholder="ID Number"
+                       style="padding:10px; border-radius:8px; border:1px solid #bbb;">
+            </div>
+
+            <!-- Address -->
+            <div class="mb-3">
+                <label style="font-weight:600; margin-bottom:5px;">Address</label>
+                <textarea class="form-control" name="address" placeholder="Complete Address"
+                          style="padding:10px; border-radius:8px; border:1px solid #bbb; height:100px;"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button class="btn btn-success" style="
+                width:100%;
+                padding:12px;
+                font-size:17px;
+                border-radius:8px;
+                font-weight:bold;
+                letter-spacing:0.5px;
+            ">
+                Save
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

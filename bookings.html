@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="
+    padding: 25px;
+    background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 12px;
+">
+
+    <div style="
+        max-width: 950px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 18px rgba(0,0,0,0.3);
+    ">
+
+        <h3 style="
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        ">
+            Bookings 
+            <a class="btn btn-sm btn-primary" href="{{ url_for('add_booking') }}">Add</a>
+        </h3>
+
+        <table style="
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 16px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        ">
+
+            <thead>
+                <tr style="
+                    background: linear-gradient(to right, #4b79a1, #283e51);
+                    color: white;
+                ">
+                    <th style="padding: 12px;">Tenant</th>
+                    <th style="padding: 12px;">Room</th>
+                    <th style="padding: 12px;">Bed</th>
+                    <th style="padding: 12px;">Checkin</th>
+                    <th style="padding: 12px;">Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for b in bookings %}
+                <tr style="
+                    border-bottom: 1px solid #ddd;
+                    transition: 0.3s;
+                "
+                onmouseover="this.style.background='rgba(230,240,255,0.6)'"
+                onmouseout="this.style.background='white'">
+
+                    <td style="padding: 12px;">{{ b.tenant.name }}</td>
+                    <td style="padding: 12px;">{{ b.room.room_no if b.room else '—' }}</td>
+                    <td style="padding: 12px;">{{ b.bed_no }}</td>
+                    <td style="padding: 12px;">{{ b.checkin_date }}</td>
+                    <td style="padding: 12px; font-weight: bold; color: #2e5fa4;">
+                        {{ b.status }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

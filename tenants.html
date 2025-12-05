@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="
+    padding: 25px;
+    background-image: url('https://images.unsplash.com/photo-1472220625704-91e1462799b2');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 12px;
+">
+
+    <div style="
+        max-width: 950px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 18px rgba(0,0,0,0.3);
+    ">
+
+        <h3 style="
+            text-align:center;
+            font-weight:bold;
+            margin-bottom:20px;
+            color:#2c3e50;
+        ">
+            Tenants 
+            <a class="btn btn-sm btn-primary" href="{{ url_for('add_tenant') }}">Add</a>
+        </h3>
+
+        <table style="
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 16px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        ">
+
+            <thead>
+                <tr style="
+                    background: linear-gradient(to right, #8e44ad, #5e3370);
+                    color: white;
+                ">
+                    <th style="padding: 12px;">Name</th>
+                    <th style="padding: 12px;">Phone</th>
+                    <th style="padding: 12px;">Email</th>
+                    <th style="padding: 12px;">Added</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for t in tenants %}
+                <tr style="
+                    border-bottom: 1px solid #ddd;
+                    transition: 0.3s;
+                "
+                onmouseover="this.style.background='rgba(240,230,255,0.7)'"
+                onmouseout="this.style.background='white'">
+
+                    <td style="padding:12px;">{{ t.name }}</td>
+                    <td style="padding:12px;">{{ t.phone }}</td>
+                    <td style="padding:12px;">{{ t.email }}</td>
+                    <td style="padding:12px; color:#6d3fa6; font-weight:bold;">
+                        {{ t.created_at }}
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}

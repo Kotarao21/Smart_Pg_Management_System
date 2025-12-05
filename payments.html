@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="
+    padding: 25px;
+    background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 12px;
+">
+
+    <div style="
+        max-width: 950px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.92);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 18px rgba(0,0,0,0.3);
+    ">
+
+        <h3 style="
+            text-align:center;
+            font-weight:bold;
+            margin-bottom:20px;
+            color:#2c3e50;
+        ">Payments</h3>
+
+        <table style="
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            font-size: 16px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        ">
+
+            <thead>
+                <tr style="
+                    background: linear-gradient(to right, #1e8f4d, #145c33);
+                    color: white;
+                ">
+                    <th style="padding: 12px;">Booking</th>
+                    <th style="padding: 12px;">Tenant</th>
+                    <th style="padding: 12px;">Amount</th>
+                    <th style="padding: 12px;">Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for p in payments %}
+                <tr style="
+                    border-bottom: 1px solid #ddd;
+                    transition: 0.3s;
+                "
+                onmouseover="this.style.background='rgba(222,245,230,0.7)'"
+                onmouseout="this.style.background='white'">
+
+                    <td style="padding:12px;">#{{ p.booking.id if p.booking else '' }}</td>
+                    <td style="padding:12px;">{{ p.booking.tenant.name if p.booking else '' }}</td>
+                    <td style="padding:12px; font-weight:bold; color:#0d7a3a;">₹ {{ p.amount }}</td>
+                    <td style="padding:12px;">{{ p.payment_date }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

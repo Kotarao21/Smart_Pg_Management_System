@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Smart PG</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="
+    background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+">
+
+<!-- Title -->
+<center>
+  <h1 style="
+      color: white;
+      margin-top: 30px;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px black;
+  ">
+      Welcome to Smart PG Management System
+  </h1>
+</center>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark mb-4"
+     style="
+        background: rgba(0, 0, 0, 0.55);
+        padding: 10px;
+        border-bottom: 2px solid rgba(255,255,255,0.3);
+     ">
+  <div class="container">
+
+    <div class="collapse navbar-collapse">
+
+      <ul class="navbar-nav ms-auto">
+
+        {% if current_user.is_authenticated %}
+        
+          <li class="nav-item">
+            <a class="nav-link" style="color: white; font-weight:600;" href="{{ url_for('tenants') }}">Tenants</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" style="color: white; font-weight:600;" href="{{ url_for('bookings') }}">Bookings</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" style="color: white; font-weight:600;" href="{{ url_for('payments') }}">Payments</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" style="color: white; font-weight:600;" href="{{ url_for('logout') }}">Logout</a>
+          </li>
+
+        {% else %}
+        
+          <li class="nav-item">
+            <a class="nav-link" style="color: white; font-weight:600;" href="{{ url_for('login') }}">Login</a>
+          </li>
+
+        {% endif %}
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- Content Area -->
+<div class="container" style="
+    background: rgba(255, 255, 255, 0.90);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    margin-bottom: 40px;
+">
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for cat, msg in messages %}
+        <div class="alert alert-{{cat}}">{{ msg }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  {% block content %}{% endblock %}
+
+</div>
+
+</body>
+</html>
