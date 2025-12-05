@@ -40,23 +40,7 @@ Admin/owner can track and update complaint status
 
 Faster problem resolution
 
-5. Food & Attendance Tracking (If included)
-
-Daily/weekly food menu updates
-
-Tenant attendance for food services
-
-6. Reports & Analytics
-
-Monthly rent summary
-
-Tenant reports
-
-Room occupancy reports
-
-Financial calculations
-
-7. Secure Login System
+5. Secure Login System
 
 Separate login for admin/owner and tenants
 
